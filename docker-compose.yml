@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:13
+    container_name: exam_scores_db
+    environment:
+      POSTGRES_DB: exam_scores
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345
+    ports:
+      - '5555:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - exam_network
+
+  
+volumes:
+  postgres_data:
+
+networks:
+  exam_network:
+    driver: bridge

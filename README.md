@@ -27,20 +27,25 @@ npm install
 cd ../frontend
 npm install
 ```
+2. Run Docker
 
-2. Configure database:
+```bash
+docker compose up -d
+```
+
+3. Configure database:
 
 - Create a PostgreSQL database
 - Update database configuration in `backend/src/app.module.ts`
 
-3. Import data:
+4. Import data:
 
 ```bash
 cd backend
 npm run command seed:csv
 ```
 
-4. Start the application:
+5. Start the application:
 
 ```bash
 # Start backend (from backend directory)
@@ -60,3 +65,7 @@ The application will be available at:
 - `GET /api/students/score?sbd={registration_number}` - Get student scores
 - `GET /api/students/subject-statistics` - Get subject statistics
 - `GET /api/students/top-10-group-a` - Get top 10 Group A students
+![image](https://github.com/user-attachments/assets/a3529a7d-af76-4ca4-a101-fecb2306050e)
+![image](https://github.com/user-attachments/assets/71167325-6c7e-4e47-9bbc-950af8798fa7)
+![image](https://github.com/user-attachments/assets/5831628a-e98c-44dd-9929-f4a332903c0c)
+

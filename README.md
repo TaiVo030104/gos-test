@@ -15,28 +15,57 @@ A web application for analyzing and visualizing student exam scores.
 - Backend: NestJS, TypeScript, PostgreSQL
 - Database: PostgreSQL
 
-## Data Import
 
-The system supports importing exam scores from CSV files. The CSV file should have the following columns:
+### Import Data Using pgAdmin
 
-- SBD: Student registration number
-- HoTen: Student name
-- Toan: Math score
-- Van: Literature score
-- NgoaiNgu: Foreign language score
-- VatLi: Physics score
-- HoaHoc: Chemistry score
-- SinhHoc: Biology score
-- LichSu: History score
-- DiaLi: Geography score
-- GDCD: Civic education score
-- TongDiem: Total score
+1. Install PostgreSQL and pgAdmin:
 
-To import data:
+   - Download PostgreSQL from: https://www.postgresql.org/download/windows/
+   - During installation, remember the password you set for the postgres user
+   - pgAdmin will be installed automatically with PostgreSQL
 
-1. Place your CSV file in the `dataset` directory
-2. Run `npm run command import:exam-scores` from the backend directory
-3. The system will automatically create the necessary table and import the data
+2. Create Database:
+
+   - Open pgAdmin
+   - Right-click on "Databases" in the left sidebar
+   - Select "Create" > "Database"
+   - Name it "exam_scores"
+   - Click "Save"
+
+3. Import CSV using pgAdmin:
+   - In pgAdmin, expand your "exam_scores" database
+   - Right-click on "Tables"
+   - Select "Import/Export"
+   - In the Import dialog:
+     - Set "Import/Export" to "Import"
+     - Set "Filename" to your CSV file path
+     - Set "Format" to "csv"
+     - Set "Header" to "Yes"
+     - Set "Delimiter" to ","
+     - Set "Encoding" to "UTF8"
+   - Click "OK" to import
+
+### Import Data Using Backend Command
+
+Alternatively, you can import data using the backend command:
+
+1. Place your CSV file in the `backend/data` directory
+2. Configure database connection in `backend/.env`:
+
+```
+DB_HOST=localhost
+DB_PORT=5432
+DB_USERNAME=postgres
+DB_PASSWORD=your_password
+DB_DATABASE=exam_scores
+```
+
+3. Run the import command:
+
+```bash
+cd backend
+npm run command import:exam-scores
+```
 
 ## Setup
 

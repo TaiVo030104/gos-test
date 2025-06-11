@@ -60,13 +60,6 @@ DB_PASSWORD=your_password
 DB_DATABASE=exam_scores
 ```
 
-3. Run the import command:
-
-```bash
-cd backend
-npm run command import:exam-scores
-```
-
 ## Setup
 
 1. Install dependencies:
@@ -92,18 +85,8 @@ docker compose up -d
 - Create a PostgreSQL database
 - Update database configuration in `backend/src/app.module.ts`
 
-4. Import data:
 
-```bash
-# Import exam scores from CSV file
-cd backend
-npm run command import:exam-scores
-
-# Or import sample data
-npm run command seed:csv
-```
-
-5. Start the application:
+4. Start the application:
 
 ```bash
 # Start backend (from backend directory)
